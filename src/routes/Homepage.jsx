@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import travel from "../assets/img/travel.svg";
 const Homepage = () => {
 	return (
-		<div className="bg-gradient-to-b from-white from-50% via-yellow-700/40">
+		<div className="bg-gradient-to-b from-white from-50% via-yellow-700/40 pt-14">
 			<section className="relative">
 				<div className="relative z-10 max-w-screen-xl mx-auto px-4 py-8 md:px-8">
 					<div>
