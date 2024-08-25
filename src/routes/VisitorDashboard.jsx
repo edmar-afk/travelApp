@@ -1,7 +1,4 @@
-import FavoritesList from "../components/visitors/homepage/FavoritesList";
-import Header from "../components/visitors/homepage/Header";
-import Search from "../components/visitors/homepage/Search";
-import MostEngage from '../components/visitors/homepage/MostEngage'
+import FavoritesList from "../components/visitors/homepage/FavoritesList";import Header from "../components/visitors/homepage/Header";import Search from "../components/visitors/homepage/Search";import MostEngage from '../components/visitors/homepage/MostEngage';
 import BottomNav from "../components/BottomNav";
 
 function VisitorDashboard() {
@@ -21,8 +18,15 @@ function VisitorDashboard() {
 				/>
 				<FavoritesList userId={userId} />
 				<Search />
-				<MostEngage />
-				<BottomNav/>
+
+				<p className="p-4 font-semibold">Most Loved Places</p>
+				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
+					<MostEngage />
+					<MostEngage />
+					<MostEngage />
+					<MostEngage />
+				</div>
+				<BottomNav />
 			</div>
 		</>
 	);
