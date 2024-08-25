@@ -1,7 +1,5 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable react/no-unescaped-entities */ import favIcon from "../../../assets/svg/favIcon.svg";
-import { Link } from "react-router-dom";
-
+/* eslint-disable react/prop-types */ /* eslint-disable react/no-unescaped-entities */ import favIcon from "../../../assets/svg/favIcon.svg";import { Link } from "react-router-dom";
+import FavLoc from "./FavLoc";
 function FavoritesList({ userId }) {
 	return (
 		<div className="flex flex-col p-4">
@@ -9,11 +7,14 @@ function FavoritesList({ userId }) {
 
 			{/* Check if userId has a value */}
 			{userId ? (
-				<div
-					className="flex flex-row"
-					id="hasUserId">
-					{/* Content to display if userId is present */}
-					<p>Display if user has Id: {userId}</p>
+				<div id="hasUserId">
+					<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
+						<FavLoc name=" NHS" />
+						<FavLoc name="Swimming Pool" />
+						<FavLoc name="Municipal Hall" />
+						<FavLoc name="Terminal" />
+						<FavLoc name="Market" />
+					</div>
 				</div>
 			) : (
 				<div
