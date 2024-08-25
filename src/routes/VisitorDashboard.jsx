@@ -1,4 +1,7 @@
-import FavoritesList from "../components/visitors/homepage/FavoritesList";import Header from "../components/visitors/homepage/Header";import Search from "../components/visitors/homepage/Search";import MostEngage from '../components/visitors/homepage/MostEngage';
+import FavoritesList from "../components/visitors/homepage/FavoritesList";
+import Header from "../components/visitors/homepage/Header";
+import Search from "../components/visitors/homepage/Search";
+import MostEngage from "../components/visitors/homepage/MostEngage";
 import BottomNav from "../components/BottomNav";
 
 function VisitorDashboard() {
@@ -21,10 +24,10 @@ function VisitorDashboard() {
 
 				<p className="p-4 font-semibold">Most Loved Places</p>
 				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
-					<MostEngage />
-					<MostEngage />
-					<MostEngage />
-					<MostEngage />
+					<MostEngage locName="ATM Resort" loveCount={24234}/>
+					<MostEngage locName="ATM Resort" loveCount={15234}/>
+					<MostEngage locName="ATM Resort" loveCount={3234}/>
+					<MostEngage locName="ATM Resort" loveCount={7234}/>
 				</div>
 				<BottomNav />
 			</div>

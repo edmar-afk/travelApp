@@ -9,7 +9,7 @@ function FavLoc({ name }) {
 					alt=""
 					className="w-16 h-16 rounded-full object-cover" // Ensure the width and height are equal for a perfect circle
 				/>
-				<p className="text-xs text-center">{name}</p>
+				<p className="text-xs text-center mt-2">{name}</p>
 			</div>
 		</>
 	);
