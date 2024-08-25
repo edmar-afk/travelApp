@@ -1,6 +1,4 @@
-import logo from "../../../assets/img/logo.png";
-
-// eslint-disable-next-line react/prop-types
+import logo from "../../../assets/img/bg.jpg";// eslint-disable-next-line react/prop-types
 function FavLoc({ name }) {
 	return (
 		<>
@@ -9,7 +7,7 @@ function FavLoc({ name }) {
 					src={logo}
 					width={60}
 					alt=""
-					className="flex-shrink-0"
+					className="w-16 h-16 rounded-full object-cover" // Ensure the width and height are equal for a perfect circle
 				/>
 				<p className="text-xs text-center">{name}</p>
 			</div>
