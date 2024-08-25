@@ -9,11 +9,11 @@ function FavoritesList({ userId }) {
 			{userId ? (
 				<div id="hasUserId">
 					<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
-						<FavLoc name=" NHS" />
-						<FavLoc name="Swimming Pool" />
-						<FavLoc name="Municipal Hall" />
-						<FavLoc name="Terminal" />
-						<FavLoc name="Market" />
+						<FavLoc name="Camp Lagkaw" />
+						<FavLoc name="ATM Resort" />
+						<FavLoc name="Libas Spring" />
+						<FavLoc name="Baka Falls" />
+						<FavLoc name="Dumagok River" />
 					</div>
 				</div>
 			) : (
