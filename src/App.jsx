@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Register from "./routes/Register";
 import NotFound from "./components/NotFound";
 import Homepage from "./routes/Homepage";
+import VisitorDashboard from "./routes/VisitorDashboard";
 
 function Logout() {
 	localStorage.clear();
@@ -62,7 +63,10 @@ function App() {
 							path="/login"
 							element={<Login />}
 						/>
-						
+						<Route
+							path="/visitorDashboard"
+							element={<VisitorDashboard />}
+						/>
 						<Route
 							path="*"
 							element={<NotFound />}

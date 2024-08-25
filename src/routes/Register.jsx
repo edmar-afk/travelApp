@@ -1,11 +1,17 @@
-import { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
 import api from "../assets/api";
 import Swal from "sweetalert2";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
-import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
+import CircularProgress from "@mui/material/CircularProgress";
+import logo from "../assets/img/logo.png";
+import NumbersIcon from "@mui/icons-material/Numbers";
+import AssignmentIndIcon from "@mui/icons-material/AssignmentInd";
+import HttpsIcon from "@mui/icons-material/Https";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 function Register() {
 	const [firstName, setFirstName] = useState("");
 	const [mobileNum, setMobileNum] = useState("");
+	const [address, setAddress] = useState("");
 	const [password, setPassword] = useState("");
 	const [password2, setPassword2] = useState("");
 	const [error, setError] = useState("");
@@ -46,9 +52,16 @@ function Register() {
 		setPassword2(e.target.value);
 	};
 
+	const handleAddressChange = (e) => {
+		setAddress(e.target.value);
+	};
+
+	const handleFirstNameChange = (e) => {
+		setFirstName(e.target.value);
+	};
+
 	useEffect(() => {
 		checkPasswordsMatch();
-
 		// Check if all required fields are filled
 		if (firstName && mobileNum && password && password2 && !error) {
 			setCanSubmit(true);
@@ -60,21 +73,30 @@ function Register() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		// Show SweetAlert2 loading spinner
+
+		if (password !== password2) {
+			Swal.fire({
+				title: "Error!",
+				text: "Passwords do not match.",
+				icon: "error",
+				confirmButtonText: "OK",
+			});
+			setLoading(false);
+			return;
+		}
 
 		try {
-			const res = await api.post("/api/register/", {
+			const formData = {
 				first_name: firstName,
+				last_name: address, // Map address to last_name field
 				username: mobileNum,
-				mobile_num: mobileNum,
 				password: password,
 				password2: password2,
-			});
+			};
+
+			const res = await api.post("/api/register/", formData);
 
 			if (res.status === 201) {
-				// Close the SweetAlert2 loading spinner
-
-				// Navigate to login page with state
 				navigate("/login", { state: { successMessage: "You have been registered successfully." } });
 			} else {
 				Swal.fire({
@@ -86,16 +108,13 @@ function Register() {
 			}
 		} catch (error) {
 			let errorMessage = "Registration failed";
-
 			if (error.response) {
-				// If the error response contains specific error messages, display them
 				if (error.response.data && typeof error.response.data === "object") {
 					errorMessage = Object.values(error.response.data).join(" ");
 				} else if (error.response.data && error.response.data.detail) {
 					errorMessage = error.response.data.detail;
 				}
 			}
-
 			Swal.fire({
 				title: "Error!",
 				text: errorMessage,
@@ -114,114 +133,109 @@ function Register() {
 				className="p-3 flex items-center fixed top-14">
 				<ArrowBackIcon className="text-gray-800" />
 			</Link>
-			<div className="font-[sans-serif]">
-				<div className="bg-white h-screen">
-					<div className="bg-white rounded-xl sm:px-6 px-4 py-8 max-w-md w-full h-max max-lg:mx-auto">
-						<form onSubmit={handleSubmit}>
-							<div className="mb-8 pt-24">
-								<div className="flex flex-col items-center justify-center pt-12 mb-2">
-									<img
-										src='#'
-										className="w-40"
-										alt=""
-									/>
-									<p className="text-gray-800 font-bold text-4xl">Register</p>
-								</div>
-							</div>
+			<section className="bg-white">
+				<div className="container flex items-center justify-center min-h-screen px-6 mx-auto">
+					<form
+						className="w-full max-w-md pt-24"
+						onSubmit={handleSubmit}>
+						<div className="flex flex-col items-center justify-center mx-auto">
+							<img
+								className="w-24"
+								src={logo}
+								alt=""
+							/>
+							<p className="mt-8 font-bold text-3xl">Register</p>
+						</div>
 
-							<div>
-								<div className="relative flex items-center">
-									<input
-										type="text"
-										value={firstName}
-										onChange={(e) => setFirstName(e.target.value)}
-										required
-										className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-md outline-blue-600"
-										placeholder="Full Name"
-									/>
-								</div>
-							</div>
-
-							<div className="mt-2">
-								<div className="relative flex flex-col items-center">
-									<input
-										type="text"
-										value={mobileNum}
-										onChange={handleMobileNumChange}
-										required
-										className={`w-full text-sm text-gray-800 border px-4 py-3 rounded-md outline-blue-600 ${
-											error.includes("Please enter an 11-digit number starting with '09'.")
-												? "border-red-500"
-												: "border-gray-300"
-										}`}
-										placeholder="Mobile Number"
-										maxLength="11"
-									/>
-									{error && error.includes("Please enter an 11-digit number starting with '09'.") && (
-										<p className="text-red-500 text-sm mt-2">{error}</p>
-									)}
-								</div>
-							</div>
-
-							<div className="mt-2">
-								<div className="relative flex items-center">
-									<input
-										type="password"
-										value={password}
-										onChange={handlePasswordChange}
-										required
-										className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-md outline-blue-600"
-										placeholder="Password"
-									/>
-								</div>
-							</div>
-
-							<div className="mt-2">
-								<div className="relative flex items-center">
-									<input
-										type="password"
-										value={password2}
-										onChange={handlePassword2Change}
-										required
-										className="w-full text-sm text-gray-800 border border-gray-300 px-4 py-3 rounded-md outline-blue-600"
-										placeholder="Confirm Password"
-									/>
-								</div>
-							</div>
-
-							{error && !error.includes("Please enter an 11-digit number starting with '09'.") && (
-								<p className="text-red-500 mt-2 text-xs">{error}</p>
+						<div className="relative flex items-center mt-8">
+							<span className="absolute">
+								<NumbersIcon className="mx-3 text-gray-500" />
+							</span>
+							<input
+								type="number"
+								value={mobileNum}
+								onChange={handleMobileNumChange}
+								className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 border-gray-600 focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+								placeholder="Mobile Number"
+							/>
+						</div>
+						<div className="relative flex items-center mt-6">
+							<span className="absolute">
+								<AssignmentIndIcon className="mx-3 text-gray-500" />
+							</span>
+							<input
+								type="text"
+								value={firstName}
+								onChange={handleFirstNameChange}
+								className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 border-gray-600 focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+								placeholder="Full Name"
+							/>
+						</div>
+						<div className="relative flex items-center mt-6">
+							<span className="absolute">
+								<LocationOnIcon className="mx-3 text-gray-500" />
+							</span>
+							<input
+								type="text"
+								value={address}
+								onChange={handleAddressChange}
+								className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 border-gray-600 focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+								placeholder="Address"
+							/>
+						</div>
+						<div className="relative flex items-center mt-6">
+							<span className="absolute">
+								<HttpsIcon className="mx-3 text-gray-500" />
+							</span>
+							<input
+								type="password"
+								value={password}
+								onChange={handlePasswordChange}
+								className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 border-gray-600 focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+								placeholder="Password"
+							/>
+						</div>
+						<div className="relative flex items-center mt-6">
+							<span className="absolute">
+								<HttpsIcon className="mx-3 text-gray-500" />
+							</span>
+							<input
+								type="password"
+								value={password2}
+								onChange={handlePassword2Change}
+								className="block w-full py-3 text-gray-700 bg-white border rounded-lg px-11 border-gray-600 focus:border-yellow-400 focus:ring-yellow-300 focus:outline-none focus:ring focus:ring-opacity-40"
+								placeholder="Confirm Password"
+							/>
+						</div>
+						<br />
+						{error && <div className="text-red-500 text-center text-sm mt-8">{error}</div>}
+						<button
+							type="submit"
+							disabled={!canSubmit}
+							className="w-full mt-2 py-3 px-6 text-white bg-yellow-800 rounded-lg flex items-center justify-center">
+							{loading ? (
+								<CircularProgress
+									color="inherit"
+									size={24}
+								/>
+							) : (
+								"Sign Up"
 							)}
+						</button>
 
-							<div className="flex flex-col items-center justify-between mt-4">
-								<button
-									type="submit"
-									disabled={!canSubmit || loading}
-									className={`px-6 py-2 w-full mb-4 text-white font-semibold rounded-md transition-colors ${
-										canSubmit ? "bg-blue-600 hover:bg-blue-700" : "bg-red-600 cursor-not-allowed"
-									}`}>
-									{loading ? (
-										<>
-											<HourglassBottomIcon className="animate-spin h-5 w-5 mr-3 text-white" />
-											Validating...
-										</>
-									) : (
-										"Register"
-									)}
-								</button>
-								<p>
-									Already have an account?
-									<Link
-										to="/login"
-										className="text-blue-500 hover:underline ml-2">
-										Login here
-									</Link>
-								</p>
-							</div>
-						</form>
-					</div>
+						<div className="flex items-center justify-between mt-2 mb-8">
+							<p className="text-gray-500">
+								Already have an account?
+								<Link
+									to="/login"
+									className="font-bold ml-1 text-yellow-600 hover:underline">
+									Log in here
+								</Link>
+							</p>
+						</div>
+					</form>
 				</div>
-			</div>
+			</section>
 		</>
 	);
 }

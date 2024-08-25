@@ -1,11 +1,10 @@
-import logo from "../assets/img/logo.png";
-import { Link } from "react-router-dom";
+import logo from "../assets/img/logo.png";import { Link } from "react-router-dom";
 import travel from "../assets/img/travel.svg";
 const Homepage = () => {
 	return (
 		<div className="bg-gradient-to-b from-white from-50% via-yellow-700/40 pt-14 h-screen">
 			<section className="relative">
-				<div className="relative z-10 max-w-screen-xl mx-auto px-4 py-8 md:px-8">
+				<div className="relative z-10 mx-auto px-4 py-8 md:px-8">
 					<div>
 						<img
 							src={logo}
@@ -32,9 +31,14 @@ const Homepage = () => {
 
 					<div className="mt-14 flex flex-row justify-evenly">
 						<Link
-							to={""}
-							className="bg-yellow-700 text-white py-1 px-8 rounded-2xl">
-							Continue
+							to={"/visitorDashboard"}
+							className="bg-yellow-700 text-white py-1 px-6 rounded-2xl">
+							Explore
+						</Link>
+						<Link
+							to={"/login"}
+							className="bg-yellow-700 text-white py-1 px-6 rounded-2xl">
+							Login
 						</Link>
 					</div>
 				</div>
