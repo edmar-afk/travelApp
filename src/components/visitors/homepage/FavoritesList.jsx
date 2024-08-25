@@ -3,7 +3,7 @@ import FavLoc from "./FavLoc";
 function FavoritesList({ userId }) {
 	return (
 		<div className="flex flex-col p-4">
-			<p className="font-bold">Your Favorites</p>
+			<p className="font-semibold">Your Favorites</p>
 
 			{/* Check if userId has a value */}
 			{userId ? (

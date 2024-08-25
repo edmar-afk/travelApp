@@ -1,7 +1,7 @@
 function MostEngage() {
   return (
     <>
-      s
+      <div className="p-4 font-semibold"><p>Most Loved Places</p></div>
     </>
   )
 }
