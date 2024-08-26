@@ -6,6 +6,7 @@ import Register from "./routes/Register";
 import NotFound from "./components/NotFound";
 import Homepage from "./routes/Homepage";
 import VisitorDashboard from "./routes/VisitorDashboard";
+import LocationDetail from "./components/visitors/locationDetails/LocationDetail";
 
 function Logout() {
 	localStorage.clear();
@@ -68,8 +69,8 @@ function App() {
 							element={<VisitorDashboard />}
 						/>
 						<Route
-							path="/visitorDashboard/buildingDetails"
-							element={<VisitorDashboard />}
+							path="/visitorDashboard/buildingDetails/:buildingId"
+							element={<LocationDetail />}
 						/>
 						<Route
 							path="*"

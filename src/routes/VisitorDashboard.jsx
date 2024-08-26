@@ -57,11 +57,11 @@ function VisitorDashboard() {
 					<div>
 						<GridViewIcon
 							onClick={handleGridViewClick}
-							className={`cursor-pointer ${viewMode === "grid" ? "text-yellow-700" : ""}`} // Optional active style
+							className={`cursor-pointer ${viewMode === "grid" ? "text-yellow-700 scale-125" : ""}`} // Optional active style
 						/>
 						<CollectionsIcon
 							onClick={handleCollectionViewClick}
-							className={`ml-2 cursor-pointer  ${viewMode === "collection" ? "text-yellow-700" : ""}`} // Optional active style
+							className={`ml-2 cursor-pointer  ${viewMode === "collection" ? "text-yellow-700 scale-125" : ""}`} // Optional active style
 						/>
 					</div>
 				</div>
