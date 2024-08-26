@@ -1,5 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */
-import welcome from "../../../assets/svg/welcome.svg";function Welcome() {
+/* eslint-disable react/no-unescaped-entities */ import welcome from "../../../assets/svg/welcome.svg";
+function Welcome() {
 	return (
 		<>
 			<div className="flex flex-row items-center bg-white p-4 mt-6">
@@ -11,15 +11,10 @@ import welcome from "../../../assets/svg/welcome.svg";function Welcome() {
 				<div className="max-h-24 overflow-y-scroll">
 					<p className="font-bold ml-2">Welcome to Lakewood!</p>
 					<p className="text-xs">
-						Lakewood ZDS is a serene and picturesque destination that seamlessly blends natural beauty with modern
-						amenities, making it an ideal spot for relaxation, recreation, and exploration. Nestled amidst lush greenery
-						and overlooking a tranquil lake, Lakewood ZDS offers stunning views and a peaceful ambiance that captivates
-						visitors from the moment they arrive. Whether you're looking to enjoy a leisurely stroll along its scenic
-						trails, engage in exciting water activities like kayaking or paddleboarding, or simply unwind by the
-						lakeside with a good book, Lakewood ZDS provides an experience that caters to every preference. The area is
-						well-equipped with facilities for picnicking, family gatherings, and outdoor events, ensuring a comfortable
-						and enjoyable stay. With its commitment to preserving the natural environment while offering modern
-						comforts, Lakewood ZDS is a perfect retreat for nature lovers, adventure enthusiasts, and families alike.
+						This is a serene municipality located near beautiful hills and trees this town is best known for the
+						beautiful lake Wood which is a wonderful lake that mirrors the blue sky and the green surrounding
+						environment. Due to the fact that the water is calm and mirrors the surroundings the reflection it forms is
+						impressive and almost beautiful to be real
 					</p>
 				</div>
 			</div>
