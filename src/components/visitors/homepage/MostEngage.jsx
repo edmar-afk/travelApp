@@ -1,5 +1,4 @@
-import sampleImg from "../../../assets/img/bg.jpg";
-import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import sampleImg from "../../../assets/img/bg.jpg";import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ExploreIcon from "@mui/icons-material/Explore";
 
 // Function to format the number
@@ -16,8 +15,8 @@ const formatNumber = (num) => {
 function MostEngage({ locName, loveCount }) {
 	return (
 		<>
-      <div className="flex flex-col relative mb-24 mx-4 min-w-[140px]">
-        <div className="absolute top-0 h-full w-full rounded-2xl bg-red-400/20"></div>
+			<div className="flex flex-col relative mb-4 mx-4 min-w-[140px]">
+				<div className="absolute top-0 h-full w-full rounded-2xl bg-gradient-to-t from-yellow-400/50"></div>
 				<img
 					src={sampleImg}
 					className="w-[140px] h-[140px] object-cover rounded-2xl" // Adjusted class

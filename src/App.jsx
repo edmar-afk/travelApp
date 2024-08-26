@@ -68,6 +68,10 @@ function App() {
 							element={<VisitorDashboard />}
 						/>
 						<Route
+							path="/visitorDashboard/buildingDetails"
+							element={<VisitorDashboard />}
+						/>
+						<Route
 							path="*"
 							element={<NotFound />}
 						/>
