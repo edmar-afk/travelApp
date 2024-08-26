@@ -1,20 +1,20 @@
-import sampleImg from "../../../assets/img/bg.jpg";import ExploreIcon from "@mui/icons-material/Explore";
+import { Link } from "react-router-dom";import sampleImg from "../../../assets/img/bg.jpg";import ExploreIcon from "@mui/icons-material/Explore";
 
 
 // eslint-disable-next-line react/prop-types
 function Landmarks({ locName }) {
 	return (
 		<>
-			<div className="flex flex-col relative mb-4 mx-4 min-w-[350px]">
+			<Link
+				to={`/visitorDashboard/buildingDetails/${1}`}
+				className="flex flex-col relative mb-4 mx-4 min-w-[350px]">
 				<div className="absolute top-0 h-full w-full rounded-2xl bg-gradient-to-b from-gray-800/50"></div>
 				<img
 					src={sampleImg}
 					className="w-[350px] h-[240px] object-cover rounded-2xl" // Adjusted class
 					alt="Description of the image" // Added alt text
 				/>
-				<div className="absolute top-4 text-white right-4 text-xs">
-					
-				</div>
+				<div className="absolute top-4 text-white right-4 text-xs"></div>
 
 				<div className="absolute bottom-4 text-white left-4 text-xs">
 					<div className="flex items-center">
@@ -22,7 +22,7 @@ function Landmarks({ locName }) {
 						<p className="ml-1">{locName}</p>
 					</div>
 				</div>
-			</div>
+			</Link>
 		</>
 	);
 }

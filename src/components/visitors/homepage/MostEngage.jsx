@@ -1,5 +1,7 @@
-import sampleImg from "../../../assets/img/bg.jpg";import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
+import sampleImg from "../../../assets/img/bg.jpg";
+import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ExploreIcon from "@mui/icons-material/Explore";
+import { Link } from "react-router-dom";
 
 // Function to format the number
 const formatNumber = (num) => {
@@ -15,7 +17,9 @@ const formatNumber = (num) => {
 function MostEngage({ locName, loveCount }) {
 	return (
 		<>
-			<div className="flex flex-col relative mb-4 mx-4 min-w-[140px]">
+			<Link
+				to={`/visitorDashboard/buildingDetails/${1}`}
+				className="flex flex-col relative mb-4 mx-4 min-w-[140px]">
 				<div className="absolute top-0 h-full w-full rounded-2xl bg-gradient-to-t from-yellow-400/50"></div>
 				<img
 					src={sampleImg}
@@ -35,7 +39,7 @@ function MostEngage({ locName, loveCount }) {
 						<p className="ml-1">{locName}</p>
 					</div>
 				</div>
-			</div>
+			</Link>
 		</>
 	);
 }
