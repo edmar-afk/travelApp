@@ -7,6 +7,7 @@ import NotFound from "./components/NotFound";
 import Homepage from "./routes/Homepage";
 import VisitorDashboard from "./routes/VisitorDashboard";
 import LocationDetail from "./components/visitors/locationDetails/LocationDetail";
+import Chats from "./routes/Chats";
 
 function Logout() {
 	localStorage.clear();
@@ -71,6 +72,10 @@ function App() {
 						<Route
 							path="/visitorDashboard/buildingDetails/:buildingId"
 							element={<LocationDetail />}
+						/>
+						<Route
+							path="/chatbot"
+							element={<Chats />}
 						/>
 						<Route
 							path="*"
