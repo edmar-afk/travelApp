@@ -59,7 +59,7 @@ function Chatbot() {
 
 	return (
 		<>
-			<div className="bg-white h-screen px-4 overflow-x-hidden">
+			<div className="bg-white h-screen px-4 overflow-x-hidden pt-8">
 				<div className="w-full pt-24 pb-24">
 					{/* Display messages dynamically */}
 					{messages.map((message, index) => (
@@ -68,7 +68,7 @@ function Chatbot() {
 						</div>
 					))}
 
-					<div className="fixed -left-0 bottom-4 h-[50px] w-full bg-white"></div>
+					<div className="fixed -left-0 bottom-0 h-[50px] w-full bg-white"></div>
 					<div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[350px] bg-white pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-1 inline-flex justify-between box-border">
 						<div className="flex items-center gap-2">
 							<svg

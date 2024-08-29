@@ -11,7 +11,7 @@ const YourComponent = () => {
 
 	return (
 		<div className="bg-white h-full relative">
-			<div className="w-full p-4 flex items-center justify-between fixed border-b-2 shadow-lg">
+			<div className="w-full p-4 flex items-center justify-between fixed border-b-2 shadow-lg pt-12 bg-white">
 				<ArrowBackIosIcon
 					onClick={handleBack}
 					className="cursor-pointer"
