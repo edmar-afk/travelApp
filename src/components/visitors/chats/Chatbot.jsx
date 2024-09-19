@@ -1,10 +1,11 @@
-import { useState } from "react";import Receiver from "./Receiver";
+import { useState, useRef, useEffect } from "react";import Receiver from "./Receiver";
 import Sender from "./Sender";
 import api from "../../../assets/api";
 
 function Chatbot() {
 	const [userInput, setUserInput] = useState("");
 	const [messages, setMessages] = useState([]);
+	const endOfMessagesRef = useRef(null); // Ref to the end of the messages list
 
 	// Function to handle user input change
 	const handleInputChange = (e) => {
@@ -21,7 +22,7 @@ function Chatbot() {
 		setMessages((prevMessages) => [...prevMessages, { sender: "user", text: userInput }]);
 
 		// Add a loading message for chatbot's response
-		setMessages((prevMessages) => [...prevMessages, { sender: "chatbot"}]);
+		setMessages((prevMessages) => [...prevMessages, { sender: "chatbot" }]);
 
 		try {
 			// Send user question to the chatbot API
@@ -57,6 +58,11 @@ function Chatbot() {
 		setUserInput("");
 	};
 
+	// Scroll to bottom whenever messages change
+	useEffect(() => {
+		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+	}, [messages]);
+
 	return (
 		<>
 			<div className="bg-white h-screen px-4 overflow-x-hidden pt-8">
@@ -67,6 +73,8 @@ function Chatbot() {
 							{message.sender === "user" ? <Sender text={message.text} /> : <Receiver text={message.text} />}
 						</div>
 					))}
+					{/* Scroll to this element */}
+					<div ref={endOfMessagesRef} />
 
 					<div className="fixed -left-0 bottom-0 h-[50px] w-full bg-white"></div>
 					<div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[350px] bg-white pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-1 inline-flex justify-between box-border">

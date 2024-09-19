@@ -64,7 +64,7 @@ const Login = () => {
 				className="p-3 flex items-center fixed top-14">
 				<ArrowBackIcon className="text-yellow-900" />
 			</Link>
-			<div className="h-screen bg-gradient-to-b from-yellow-500/30 pt-12">
+			<div className="h-screen bg-gradient-to-b from-yellow-500/30 pt-24">
 				<div className="flex flex-col items-center justify-center mb-8 pt-24">
 					<img
 						src="#"
