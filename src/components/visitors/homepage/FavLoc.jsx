@@ -1,21 +1,47 @@
-import logo from "../../../assets/img/bg.jpg";import { Link } from "react-router-dom";
-
+import { useEffect, useState } from "react";import { Link } from "react-router-dom";import api from "../../../assets/api";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 // eslint-disable-next-line react/prop-types
-function FavLoc({ name }) {
+function FavLoc({ id }) {
+	const [likedPlaces, setLikedPlaces] = useState([]);
+
+	// Fetch liked places from API
+	useEffect(() => {
+		const fetchLikedPlaces = async () => {
+			try {
+				const response = await api.get(`/api/user/${id}/liked-places/`);
+				setLikedPlaces(response.data);
+			} catch (error) {
+				console.error("Error fetching liked places:", error);
+			}
+		};
+
+		if (id) {
+			fetchLikedPlaces();
+		}
+	}, [id]);
+	console.log(likedPlaces);
 	return (
 		<>
-			<Link to={`/visitorDashboard/buildingDetails/${1}`}>
-				<div className="flex flex-col items-center mx-3 min-w-[80px] mb-4">
-					<img
-						src={logo}
-						width={60}
-						alt=""
-						className="w-16 h-16 rounded-full object-cover" // Ensure the width and height are equal for a perfect circle
-					/>
-					<p className="text-xs text-center mt-2">{name}</p>
-				</div>
-			</Link>
+			{likedPlaces.length > 0 ? (
+				likedPlaces.map((place) => (
+					<Link
+						key={place.id}
+						to={`/visitorDashboard/buildingDetails/${place.place_name.id}`}>
+						<div className="flex flex-col mx-3 w-[80px] overflow-hidden mb-4">
+							<img
+								src={`${BASE_URL}${place.place_name.image}`}
+								width={60}
+								alt={place.name}
+								className="w-16 h-16 rounded-full object-cover"
+							/>
+							<p className="text-xs text-center mt-2 truncate ">{place.place_name.name}</p>
+						</div>
+					</Link>
+				))
+			) : (
+				<p className="text-center">No liked places found.</p>
+			)}
 		</>
 	);
 }

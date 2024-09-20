@@ -3,17 +3,15 @@ import FavLoc from "./FavLoc";
 function FavoritesList({ userId }) {
 	return (
 		<div className="flex flex-col p-4">
-			<p className="font-semibold">Your Favorites</p>
-
+			<div className="flex flex-row justify-between">
+				<p className="font-semibold">Your Favorites</p>
+				<p className="font-bold text-yellow-700">See more</p>
+			</div>
 			{/* Check if userId has a value */}
 			{userId ? (
 				<div id="hasUserId">
 					<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
-						<FavLoc name="Camp Lagkaw" />
-						<FavLoc name="ATM Resort" />
-						<FavLoc name="Libas Spring" />
-						<FavLoc name="Baka Falls" />
-						<FavLoc name="Dumagok River" />
+						<FavLoc id={userId} />
 					</div>
 				</div>
 			) : (
