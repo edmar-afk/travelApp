@@ -1,4 +1,9 @@
-import FavoritesList from "../components/visitors/homepage/FavoritesList";import Header from "../components/visitors/homepage/Header";import Search from "../components/visitors/homepage/Search";import MostEngage from "../components/visitors/homepage/MostEngage";import BottomNav from "../components/BottomNav";import Welcome from "../components/visitors/homepage/Welcome";import Landmarks from "../components/visitors/homepage/Landmarks";
+import FavoritesList from "../components/visitors/homepage/FavoritesList";import Header from "../components/visitors/homepage/Header";
+import Search from "../components/visitors/homepage/Search";
+import MostEngage from "../components/visitors/homepage/MostEngage";
+import BottomNav from "../components/BottomNav";
+import Welcome from "../components/visitors/homepage/Welcome";
+import Landmarks from "../components/visitors/homepage/Landmarks";
 import GridViewIcon from "@mui/icons-material/GridView";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import LandmarksStacked from "../components/visitors/homepage/LandmarksStacked";
@@ -31,28 +36,13 @@ function VisitorDashboard() {
 
 				<p className="p-4 font-semibold">Most Loved Places</p>
 				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
-					<MostEngage
-						locName="ATM Resort"
-						loveCount={24234}
-					/>
-					<MostEngage
-						locName="ATM Resort"
-						loveCount={15234}
-					/>
-					<MostEngage
-						locName="ATM Resort"
-						loveCount={3234}
-					/>
-					<MostEngage
-						locName="ATM Resort"
-						loveCount={7234}
-					/>
+					<MostEngage />
 				</div>
 				<Welcome />
 
 				<div className="flex flex-row justify-between p-4 items-center">
 					<p className="font-semibold mt-2">
-						Famous Landmarks and <br /> Infrastructures
+						Famous Landmarks and <br /> Resorts
 					</p>
 					<div>
 						<GridViewIcon
@@ -68,18 +58,11 @@ function VisitorDashboard() {
 
 				{viewMode === "collection" ? (
 					<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap">
-						<Landmarks locName="ATM Resort" />
-						<Landmarks locName="ATM Resort" />
-						<Landmarks locName="ATM Resort" />
-						<Landmarks locName="ATM Resort" />
-						<Landmarks locName="ATM Resort" />
+						<Landmarks />
 					</div>
 				) : (
 					<div className="flex flex-row mt-2 overflow-x-hidden flex-wrap justify-evenly">
-						<LandmarksStacked locName="ATM Resort" />
-						<LandmarksStacked locName="ATM Resort" />
-						<LandmarksStacked locName="ATM Resort" />
-						<LandmarksStacked locName="ATM Resort" />
+						<LandmarksStacked />
 					</div>
 				)}
 
