@@ -1,8 +1,8 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";
-import Diversity1Icon from "@mui/icons-material/Diversity1";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ApprovalIcon from "@mui/icons-material/Approval";
 import api from "../../../assets/api"; // Adjust the path as neededimport locSample from "../../../assets/img/bg.jpg";
 import Marquee from "react-fast-marquee";
+import SubPlaces from "./SubPlaces";
 
 function LocationDetail() {
 	const { buildingId } = useParams();
@@ -117,7 +117,9 @@ function LocationDetail() {
 						</Marquee>
 					</div>
 				</div>
-
+				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap my-12">
+					<SubPlaces placeId={buildingId} />
+				</div>
 				<div className="mt-4 mb-16">
 					<p className="text-justify whitespace-pre-wrap">{place.description}</p>
 				</div>
