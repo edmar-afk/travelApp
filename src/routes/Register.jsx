@@ -1,5 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";
-import api from "../assets/api";
+/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";import { Link, useNavigate } from "react-router-dom";import api from "../assets/api";
 import Swal from "sweetalert2";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -68,6 +67,7 @@ function Register() {
 		} else {
 			setCanSubmit(false);
 		}
+	// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [firstName, mobileNum, password, password2, error]);
 
 	const handleSubmit = async (e) => {

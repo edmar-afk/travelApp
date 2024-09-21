@@ -8,6 +8,8 @@ import Homepage from "./routes/Homepage";
 import VisitorDashboard from "./routes/VisitorDashboard";
 import LocationDetail from "./components/visitors/locationDetails/LocationDetail";
 import Chats from "./routes/Chats";
+import Favorites from "./routes/Favorites";
+import Profile from "./routes/Profile";
 
 function Logout() {
 	localStorage.clear();
@@ -74,8 +76,16 @@ function App() {
 							element={<LocationDetail />}
 						/>
 						<Route
+							path="/favorites"
+							element={<Favorites />}
+						/>
+						<Route
 							path="/chatbot"
 							element={<Chats />}
+						/>
+						<Route
+							path="/profile"
+							element={<Profile />}
 						/>
 						<Route
 							path="*"

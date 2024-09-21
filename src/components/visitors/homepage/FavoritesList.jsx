@@ -1,11 +1,12 @@
-/* eslint-disable react/prop-types */ /* eslint-disable react/no-unescaped-entities */ import favIcon from "../../../assets/svg/favIcon.svg";import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */ /* eslint-disable react/no-unescaped-entities */ import favIcon from "../../../assets/svg/favIcon.svg";
+import { Link } from "react-router-dom";
 import FavLoc from "./FavLoc";
 function FavoritesList({ userId }) {
 	return (
 		<div className="flex flex-col p-4">
 			<div className="flex flex-row justify-between">
 				<p className="font-semibold">Your Favorites</p>
-				<p className="font-bold text-yellow-700">See more</p>
+				<Link to={'/favorites'} className="font-bold text-yellow-700">See more</Link>
 			</div>
 			{/* Check if userId has a value */}
 			{userId ? (

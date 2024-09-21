@@ -1,9 +1,11 @@
-/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";import { Link, useNavigate, useLocation } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Swal from "sweetalert2";
 import api from "../assets/api";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
+import bg from "../assets/img/bg.jpg";
 const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -64,7 +66,12 @@ const Login = () => {
 				className="p-3 flex items-center fixed top-14">
 				<ArrowBackIcon className="text-yellow-900" />
 			</Link>
-			<div className="h-screen bg-gradient-to-b from-yellow-500/30 pt-24">
+			<div className="h-screen bg-gradient-to-b from-yellow-500/30">
+				<img
+					src={bg}
+					alt=""
+					className="fixed -z-50 h-screen"
+				/>
 				<div className="flex flex-col items-center justify-center mb-8 pt-24">
 					<img
 						src="#"

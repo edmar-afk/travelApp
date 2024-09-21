@@ -72,7 +72,7 @@ function LocationDetail() {
 		<div className="relative bg-white h-full">
 			<Link
 				to={"/visitorDashboard"}
-				className="absolute top-8 left-4 bg-yellow-700 rounded-full p-1 flex items-center justify-center">
+				className="fixed top-8 left-4 bg-yellow-700 rounded-full p-1 flex items-center justify-center z-50">
 				<ArrowBackIosIcon className="block pl-1.5 text-white" />
 			</Link>
 

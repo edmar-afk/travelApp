@@ -1,8 +1,15 @@
-import logo from "../assets/img/logo.png";import { Link } from "react-router-dom";
+import logo from "../assets/img/logo.png";
+import { Link } from "react-router-dom";
 import travel from "../assets/img/travel.svg";
+import bg from "../assets/img/bg.jpg";
 const Homepage = () => {
 	return (
 		<div className="bg-gradient-to-b from-white from-50% via-yellow-700/40 pt-14 h-screen">
+			<img
+				src={bg}
+				alt=""
+				className="fixed -z-50 h-screen"
+			/>
 			<section className="relative">
 				<div className="relative z-10 mx-auto px-4 py-8 md:px-8">
 					<div>
