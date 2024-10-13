@@ -92,8 +92,8 @@ function LocationDetail() {
 					{/* You can adjust the icons and texts based on actual place data */}
 					<div
 						className="flex flex-col items-center"
-						data-tooltip-id="my-tooltip"
-						data-tooltip-content="Hello world!"
+						data-tooltip-id="popularity-tooltip"
+						data-tooltip-content={`${likes} Loved this Place.`}
 						data-tooltip-place="top"
 						data-tooltip-trigger="click" // Enable tap/click trigger
 					>
@@ -101,27 +101,33 @@ function LocationDetail() {
 							fontSize="large"
 							className="text-gray-600"
 						/>
-						<p className="mt-4">Popularity</p>
-						<p className="font-bold">{likes}</p>
-						<Tooltip id="my-tooltip" />
+						<p className="mt-1 text-xs">Popularity</p>
+
+						<Tooltip id="popularity-tooltip" />
 					</div>
-					<div className="flex flex-col items-center">
+					<div
+						className="flex flex-col items-center"
+						data-tooltip-id="building-tooltip"
+						data-tooltip-content={place.type}
+						data-tooltip-place="top">
 						<CorporateFareIcon
 							fontSize="large"
 							className="text-gray-600"
 						/>
-						<p className="mt-4">Building Type</p>
-						<p className="font-bold">{place.type}</p>
+						<p className="mt-1 text-xs">Building Type</p>
+						<Tooltip id="building-tooltip" />
 					</div>
-					<div className="flex flex-col items-center w-[90px]">
+					<div
+						className="flex flex-col items-center"
+						data-tooltip-id="address-tooltip"
+						data-tooltip-content={place.address}
+						data-tooltip-place="top">
 						<ApprovalIcon
 							fontSize="large"
 							className="text-gray-600"
 						/>
-						<p className="mt-4">Address</p>
-						<Marquee>
-							<p className="font-bold text-center mr-8">{place.address}</p>
-						</Marquee>
+						<p className="mt-1 text-xs">Address</p>
+						<Tooltip id="address-tooltip" />
 					</div>
 				</div>
 				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap my-12">
