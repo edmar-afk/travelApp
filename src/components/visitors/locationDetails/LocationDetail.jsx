@@ -1,9 +1,9 @@
 import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ApprovalIcon from "@mui/icons-material/Approval";
-import api from "../../../assets/api"; // Adjust the path as neededimport locSample from "../../../assets/img/bg.jpg";
+import api from "../../../assets/api";
 import Marquee from "react-fast-marquee";
 import SubPlaces from "./SubPlaces";
-
+import { Tooltip } from "react-tooltip";
 function LocationDetail() {
 	const { buildingId } = useParams();
 	const [place, setPlace] = useState(null);
@@ -90,13 +90,20 @@ function LocationDetail() {
 				</div>
 				<div className="my-6 flex flex-row justify-evenly items-center text-sm">
 					{/* You can adjust the icons and texts based on actual place data */}
-					<div className="flex flex-col items-center">
+					<div
+						className="flex flex-col items-center"
+						data-tooltip-id="my-tooltip"
+						data-tooltip-content="Hello world!"
+						data-tooltip-place="top"
+						data-tooltip-trigger="click" // Enable tap/click trigger
+					>
 						<Diversity1Icon
 							fontSize="large"
 							className="text-gray-600"
 						/>
 						<p className="mt-4">Popularity</p>
 						<p className="font-bold">{likes}</p>
+						<Tooltip id="my-tooltip" />
 					</div>
 					<div className="flex flex-col items-center">
 						<CorporateFareIcon
