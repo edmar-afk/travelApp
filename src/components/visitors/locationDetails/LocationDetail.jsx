@@ -1,9 +1,13 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";
+import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
+import CorporateFareIcon from "@mui/icons-material/CorporateFare";
+import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ApprovalIcon from "@mui/icons-material/Approval";
 import api from "../../../assets/api";
-import Marquee from "react-fast-marquee";
 import SubPlaces from "./SubPlaces";
 import { Tooltip } from "react-tooltip";
+import detailbg from '../../../assets/img/detailbg.jpg';
+
 function LocationDetail() {
 	const { buildingId } = useParams();
 	const [place, setPlace] = useState(null);
@@ -69,7 +73,12 @@ function LocationDetail() {
 	if (!place) return <p>No details found</p>;
 
 	return (
-		<div className="relative bg-white h-full">
+		<div className="relative bg-white/70 h-full">
+			<img
+				src={detailbg}
+				alt=""
+				className="fixed -z-50 bg-cover bottom-0 h-screen"
+			/>
 			<Link
 				to={"/visitorDashboard"}
 				className="fixed top-8 left-4 bg-yellow-700 rounded-full p-1 flex items-center justify-center z-50">

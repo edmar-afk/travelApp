@@ -2,9 +2,7 @@ import { useState, useEffect } from "react";
 import VolunteerActivismIcon from "@mui/icons-material/VolunteerActivism";
 import ExploreIcon from "@mui/icons-material/Explore";
 import { Link } from "react-router-dom";
-import api from "../../../assets/api"; // API module to make requests
-import Marquee from "react-fast-marquee";
-// Function to format the number
+import api from "../../../assets/api"; 
 const formatNumber = (num) => {
 	if (num >= 1000000) {
 		return (num / 1000000).toFixed(1) + "M"; // Format for millions
@@ -31,8 +29,9 @@ function MostEngage() {
 
 		fetchPlaces();
 	}, []);
+
 	return (
-		<div className="flex flex-wrap">
+		<div className="flex flex-row">
 			{places.map((place) => (
 				<Link
 					key={place.id}
@@ -53,16 +52,7 @@ function MostEngage() {
 					<div className="absolute bottom-2 text-white left-2 text-xs">
 						<div className="flex items-center">
 							<ExploreIcon fontSize="small" />
-							{place.name.length > 14 ? (
-								<Marquee
-									gradient={false}
-									speed={50}
-									className="ml-1 mr-8">
-									{place.name}
-								</Marquee>
-							) : (
-								<p className="ml-1 break-words w-[120px]">{place.name}</p>
-							)}
+							<p className="ml-1 text-xs truncate w-[100px]">{place.name}</p>
 						</div>
 					</div>
 				</Link>
