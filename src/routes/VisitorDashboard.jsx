@@ -8,7 +8,8 @@ import GridViewIcon from "@mui/icons-material/GridView";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import LandmarksStacked from "../components/visitors/homepage/LandmarksStacked";
 import { useState } from "react";
-
+import BuildingApproved from "../components/status/BuildingApproved";
+import BuildingOngoing from "../components/status/BuildingOngoing";
 function VisitorDashboard() {
 	const userData = JSON.parse(localStorage.getItem("userData")) || {};
 	const userId = userData?.id;
@@ -25,7 +26,7 @@ function VisitorDashboard() {
 
 	return (
 		<>
-			<div className="bg-white h-full">
+			<div className="bg-white h-full overflow-x-hidden">
 				<Header
 					// Use optional chaining to safely access first_name and last_name
 					name={userData.first_name || "Visitor"}
@@ -66,6 +67,8 @@ function VisitorDashboard() {
 					</div>
 				)}
 
+				<BuildingApproved />
+				<BuildingOngoing/>
 				<br />
 				<br />
 				<br />

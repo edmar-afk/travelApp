@@ -10,7 +10,7 @@ import LocationDetail from "./components/visitors/locationDetails/LocationDetail
 import Chats from "./routes/Chats";
 import Favorites from "./routes/Favorites";
 import Profile from "./routes/Profile";
-
+import Map from "./routes/Map";
 function Logout() {
 	localStorage.clear();
 	return <Navigate to="/" />;
@@ -82,6 +82,10 @@ function App() {
 						<Route
 							path="/chatbot"
 							element={<Chats />}
+						/>
+						<Route
+							path="/map"
+							element={<Map />}
 						/>
 						<Route
 							path="/profile"

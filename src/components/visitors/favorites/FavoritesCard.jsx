@@ -38,14 +38,14 @@ function FavoritesCard({ userId }) {
 	};
 
 	return (
-		<div className="grid grid-cols-1 gap-4">
+		<div className="flex flex-row justify-evenly flex-wrap">
 			{likedPlaces.map((place) => (
 				<div
 					key={place.id}
-					className="w-[170px] bg-white border border-gray-200 rounded-lg shadow">
+					className="w-[160px] h-[250px] mx-1 bg-white border border-gray-200 rounded-lg shadow">
 					<a href="#">
 						<img
-							className="p-2 rounded-2xl"
+							className="p-2 rounded-2xl h-[150px]"
 							src={`${BASE_URL}${place.place_name.image}`}
 							alt={place.place_name.name}
 						/>

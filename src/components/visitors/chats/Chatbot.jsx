@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";import Receiver from "./Receiver";
 import Sender from "./Sender";
 import api from "../../../assets/api";
+import Choices from "./Choices";
 
 function Chatbot() {
 	const [userInput, setUserInput] = useState("");
@@ -63,6 +64,11 @@ function Chatbot() {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
 	}, [messages]);
 
+	// Function to handle setting user input from Choices
+	const handleChoiceClick = (choiceText) => {
+		setUserInput(choiceText);
+	};
+
 	return (
 		<>
 			<div className="bg-white h-screen px-4 overflow-x-hidden pt-8">
@@ -75,7 +81,7 @@ function Chatbot() {
 					))}
 					{/* Scroll to this element */}
 					<div ref={endOfMessagesRef} />
-
+					<Choices onChoiceClick={handleChoiceClick} /> {/* Pass the click handler */}
 					<div className="fixed -left-0 bottom-0 h-[50px] w-full bg-white"></div>
 					<div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[350px] bg-white pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-1 inline-flex justify-between box-border">
 						<div className="flex items-center gap-2">
