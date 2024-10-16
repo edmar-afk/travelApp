@@ -1,11 +1,12 @@
-/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+/* eslint-disable react/no-unescaped-entities */ import { useState, useEffect } from "react";import { Link, useNavigate, useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
 import ArrowBackIcon from "@mui/icons-material/ArrowBack";
 import Swal from "sweetalert2";
 import api from "../assets/api";
 import HourglassBottomIcon from "@mui/icons-material/HourglassBottom";
 import bg from "../assets/img/bg.jpg";
+import RemoveRedEyeIcon from "@mui/icons-material/RemoveRedEye";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 const Login = () => {
 	const [username, setUsername] = useState("");
 	const [password, setPassword] = useState("");
@@ -13,6 +14,12 @@ const Login = () => {
 
 	const navigate = useNavigate();
 	const location = useLocation();
+
+	const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+
+	const togglePasswordVisibility = () => {
+		setShowPassword(!showPassword); // Toggle between true/false
+	};
 
 	useEffect(() => {
 		if (location.state && location.state.successMessage) {
@@ -114,7 +121,7 @@ const Login = () => {
 									</div>
 									<div className="relative mt-10">
 										<input
-											type="password"
+											type={showPassword ? "text" : "password"} // Change input type based on state
 											name="password"
 											id="password"
 											value={password}
@@ -127,6 +134,11 @@ const Login = () => {
 											className="pointer-events-none absolute top-0 left-0 origin-left -translate-y-1/2 transform text-sm text-white opacity-75 transition-all duration-100 ease-in-out peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-placeholder-shown:text-white peer-focus:top-0 peer-focus:pl-0 peer-focus:text-sm peer-focus:text-white">
 											Password
 										</label>
+										<div
+											className="absolute top-0 right-0 text-white cursor-pointer"
+											onClick={togglePasswordVisibility}>
+											{showPassword ? <VisibilityOffIcon /> : <RemoveRedEyeIcon />} {/* Switch icons based on state */}
+										</div>
 									</div>
 								</div>
 

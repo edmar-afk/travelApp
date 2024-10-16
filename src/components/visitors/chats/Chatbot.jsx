@@ -6,6 +6,7 @@ import Choices from "./Choices";
 function Chatbot() {
 	const [userInput, setUserInput] = useState("");
 	const [messages, setMessages] = useState([]);
+	const [choicesVisible, setChoicesVisible] = useState(true); // State to track Choices visibility
 	const endOfMessagesRef = useRef(null); // Ref to the end of the messages list
 
 	// Function to handle user input change
@@ -24,6 +25,9 @@ function Chatbot() {
 
 		// Add a loading message for chatbot's response
 		setMessages((prevMessages) => [...prevMessages, { sender: "chatbot" }]);
+
+		// Hide Choices when the message is sent
+		setChoicesVisible(false);
 
 		try {
 			// Send user question to the chatbot API
@@ -57,17 +61,24 @@ function Chatbot() {
 
 		// Clear user input field
 		setUserInput("");
+
+		// Show Choices after a 2-second delay
+		setTimeout(() => {
+			setChoicesVisible(true);
+		}, 2000);
+	};
+
+	// Function to handle setting user input from Choices
+	const handleChoiceClick = (choiceText) => {
+		setUserInput(choiceText);
+		setChoicesVisible(false); // Hide Choices when a choice is clicked
+		handleSendMessage();
 	};
 
 	// Scroll to bottom whenever messages change
 	useEffect(() => {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
 	}, [messages]);
-
-	// Function to handle setting user input from Choices
-	const handleChoiceClick = (choiceText) => {
-		setUserInput(choiceText);
-	};
 
 	return (
 		<>
@@ -81,7 +92,8 @@ function Chatbot() {
 					))}
 					{/* Scroll to this element */}
 					<div ref={endOfMessagesRef} />
-					<Choices onChoiceClick={handleChoiceClick} /> {/* Pass the click handler */}
+					{/* Conditionally render Choices */}
+					{choicesVisible && <Choices onChoiceClick={handleChoiceClick} />} {/* Pass the click handler */}
 					<div className="fixed -left-0 bottom-0 h-[50px] w-full bg-white"></div>
 					<div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[350px] bg-white pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-1 inline-flex justify-between box-border">
 						<div className="flex items-center gap-2">
