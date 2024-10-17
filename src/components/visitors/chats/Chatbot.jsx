@@ -80,6 +80,13 @@ function Chatbot() {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
 	}, [messages]);
 
+	// Scroll to bottom whenever Choices are shown again
+	useEffect(() => {
+		if (choicesVisible) {
+			endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
+		}
+	}, [choicesVisible]);
+
 	return (
 		<>
 			<div className="bg-white h-screen px-4 overflow-x-hidden pt-8">
@@ -90,10 +97,10 @@ function Chatbot() {
 							{message.sender === "user" ? <Sender text={message.text} /> : <Receiver text={message.text} />}
 						</div>
 					))}
-					{/* Scroll to this element */}
-					<div ref={endOfMessagesRef} />
 					{/* Conditionally render Choices */}
 					{choicesVisible && <Choices onChoiceClick={handleChoiceClick} />} {/* Pass the click handler */}
+					{/* Scroll to this element */}
+					<div ref={endOfMessagesRef} />
 					<div className="fixed -left-0 bottom-0 h-[50px] w-full bg-white"></div>
 					<div className="fixed bottom-4 left-1/2 transform -translate-x-1/2 w-[350px] bg-white pl-3 pr-1 py-1 rounded-3xl border border-gray-200 items-center gap-1 inline-flex justify-between box-border">
 						<div className="flex items-center gap-2">
