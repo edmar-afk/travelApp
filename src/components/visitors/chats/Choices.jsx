@@ -1,40 +1,55 @@
-/* eslint-disable react/prop-types */function Choices({ onChoiceClick }) {
-	return (
+/* eslint-disable react/prop-types */function Choices({ onChoiceClick }) {	return (
 		<>
 			<div className="sticky bg-white bottom-14 flex flex-wrap justify-start space-y-2 space-x-2">
 				<div
 					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
-					onClick={() => onChoiceClick("Are there any local markets or food stalls available in every tourist spot?")}>
-					<p>Are there any local markets or food stalls available in every tourist spot?</p>
-				</div>
-				<div
-					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
-					onClick={() => onChoiceClick("What are the best transportation options to reach the tourist destination?")}>
-					<p>What are the best transportation options to reach the tourist destination?</p>
+					onClick={() =>
+						onChoiceClick(
+							"What are the best hiking trails in Lakewood for experienced hikers and how long does it takes to reach the area?"
+						)
+					}>
+					<p>
+						What are the best hiking trails in Lakewood for experienced hikers and how long does it takes to reach the
+						area?
+					</p>
 				</div>
 				<div
 					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
 					onClick={() =>
-						onChoiceClick("Mayroon bang mga lokal na palengke o mga tindahan ng pagkain sa bawat tourist spot?")
+						onChoiceClick("How long and how much does it cost to travel to all tourist spot in lakewood?")
 					}>
-					<p>Mayroon bang mga lokal na palengke o mga tindahan ng pagkain sa bawat tourist spot?</p>
-				</div>
-				<div
-					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
-					onClick={() => onChoiceClick("Mayroon bang mga sasakyan o tricycle sa Lakewood?")}>
-					<p>Mayroon bang mga sasakyan o tricycle sa Lakewood?</p>
+					<p>How long and how much does it cost to travel to all tourist spot in lakewood?</p>
 				</div>
 				<div
 					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
 					onClick={() =>
-						onChoiceClick("Mayroon bang budget-friendly na accommodation sa bawat tourist spot sa Lakewood?")
+						onChoiceClick("Is it possible to hire a tour guide when visiting Camp lagkaw? If so, who can I contact?")
 					}>
-					<p>Mayroon bang budget-friendly na accommodation sa bawat tourist spot sa Lakewood?</p>
+					<p>Is it possible to hire a tour guide when visiting Camp lagkaw? If so, who can I contact?</p>
 				</div>
 				<div
 					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
-					onClick={() => onChoiceClick("Unsa ang mga pangunahing atraksyon sa Lakewood?")}>
-					<p>Unsa ang mga pangunahing atraksyon sa Lakewood?</p>
+					onClick={() => onChoiceClick("What are the price ranges for accommodations in Roberto’s Villa Resort")}>
+					<p>What are the price ranges for accommodations in Roberto’s Villa Resort</p>
+				</div>
+				<div
+					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
+					onClick={() => onChoiceClick("How long and how much does it cost to travel in HexaK Spring Resort?")}>
+					<p>How long and how much does it cost to travel in HexaK Spring Resort?</p>
+				</div>
+				<div
+					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
+					onClick={() =>
+						onChoiceClick("Is it possible to hire a tour guide when visiting Baka Falls? If so, who can I contact?")
+					}>
+					<p>Is it possible to hire a tour guide when visiting Baka Falls? If so, who can I contact?</p>
+				</div>
+				<div
+					className="bg-cyan-50 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
+					onClick={() =>
+						onChoiceClick("What are the price ranges for accommodations in Roberto’s Villa Resort?")
+					}>
+					<p>What are the price ranges for accommodations in Roberto’s Villa Resort?</p>
 				</div>
 			</div>
 		</>
