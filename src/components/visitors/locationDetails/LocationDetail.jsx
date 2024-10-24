@@ -1,6 +1,4 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import CorporateFareIcon from "@mui/icons-material/CorporateFare";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";
 import Diversity1Icon from "@mui/icons-material/Diversity1";
 import ApprovalIcon from "@mui/icons-material/Approval";
 import api from "../../../assets/api";
@@ -142,8 +140,11 @@ function LocationDetail() {
 				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap my-12">
 					<SubPlaces placeId={buildingId} />
 				</div>
-				<div className="mt-4 mb-16">
-					<p className="text-justify whitespace-pre-wrap">{place.description}</p>
+				<div className="mt-4 mb-16 prose">
+					<p
+						className="whitespace-pre-wrap"
+						dangerouslySetInnerHTML={{ __html: place.description }}
+					/>
 				</div>
 
 				<div className="fixed -left-0 bottom-0 h-[250px] w-full bg-gradient-to-t from-white"></div>
