@@ -109,7 +109,7 @@ function Profile() {
 							<h2 className="text-gray-800 text-xl font-bold">{userData.first_name}</h2>
 							<a
 								className="text-yellow-900 mt-2 flex items-center justify-center"
-								href="https://www.instagram.com/immohitdhiman/"
+								href="#"
 								target="_blank"
 								rel="noopener noreferrer">
 								<HikingIcon
