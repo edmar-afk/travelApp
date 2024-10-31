@@ -107,9 +107,9 @@ function Profile() {
 					<div className="">
 						<div className="text-center px-4">
 							<h2 className="text-gray-800 text-xl font-bold">{userData.first_name}</h2>
-							<a
+							<p
 								className="text-yellow-900 mt-2 flex items-center justify-center"
-								href="#"
+								
 								target="_blank"
 								rel="noopener noreferrer">
 								<HikingIcon
@@ -117,7 +117,7 @@ function Profile() {
 									className="mr-2"
 								/>
 								Traveler
-							</a>
+							</p>
 							<p className="mt-2 text-gray-500 text-xs">
 								Welcome to Lakewood! Renowned for its stunning landscapes, rich culture, and warm hospitality. Whether
 								you're seeking a serene escape or a taste of nature's beauty, Lakewood is the perfect destination for
