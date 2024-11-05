@@ -1,4 +1,4 @@
-/* eslint-disable react/prop-types */function Choices({ onChoiceClick }) {	return (
+/* eslint-disable react/prop-types */ function Choices({ onChoiceClick }) {	return (
 		<>
 			<div className="sticky bg-white bottom-14 flex flex-wrap justify-start space-y-2 space-x-2 h-[100px] overflow-y-auto shadow-2xl">
 				<div
@@ -46,9 +46,7 @@
 				</div>
 				<div
 					className="bg-cyan-50 mb-2 shadow-lg text-[9px] w-fit p-2 rounded-full flex items-center justify-center cursor-pointer"
-					onClick={() =>
-						onChoiceClick("What are the price ranges for accommodations in Roberto’s Villa Resort?")
-					}>
+					onClick={() => onChoiceClick("What are the price ranges for accommodations in Roberto’s Villa Resort?")}>
 					<p>What are the price ranges for accommodations in Roberto’s Villa Resort?</p>
 				</div>
 			</div>
