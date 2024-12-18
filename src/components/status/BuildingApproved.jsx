@@ -1,5 +1,9 @@
-import api from "../../assets/api";import { useEffect, useState } from "react";import { Link } from "react-router-dom";
+import api from "../../assets/api";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import DomainIcon from "@mui/icons-material/Domain";
+import resortLogo from "../../assets/img/resortlogo.avif";
+
 function BuildingApproved() {
 	const [places, setPlaces] = useState([]);
 	useEffect(() => {
@@ -25,16 +29,16 @@ function BuildingApproved() {
 							to={`/visitorDashboard/buildingDetails/${place.id}`}
 							className="flex flex-col relative mb-4 mx-4 w-20 h-20 ">
 							<div className="absolute top-0 h-full w-full rounded-2xl"></div>
-							<div className="flex justify-center">
-								<DomainIcon
-									className="text-green-600"
-									sx={{ fontSize: 50 }}
+							<div className="flex flex-col justify-center items-center">
+								<img
+									src={resortLogo}
+									alt=""
+									className="-mb-4"
 								/>
-							</div>
-
-							<div className="absolute bottom-0 text-gray-800 text-xs">
-								<div className="flex items-center justify-center">
-									<p className="text-center font-semibold">{place.name}</p> {/* Display place name */}
+								<div className="text-center text-gray-800 text-xs">
+									<div className="flex items-center justify-center">
+										<p className="text-center font-semibold">{place.name}</p> {/* Display place name */}
+									</div>
 								</div>
 							</div>
 						</Link>
