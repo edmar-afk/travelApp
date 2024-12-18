@@ -1,25 +1,48 @@
-import BottomNav from "../components/BottomNav";import map from "../assets/img/map.jpg";
+import BottomNav from "../components/BottomNav";import map from "../assets/img/map.png";
+import "react-tooltip/dist/react-tooltip.css";
+import { Tooltip } from "react-tooltip";
+import { Link } from "react-router-dom"; // Import Link for navigation
+
 function Map() {
 	return (
 		<>
-			<div className="overflow-x-hidden">
-				{/* <img
-				src={map}
-                alt=""
-                className="mt-8"
-			/> */}
-				<div className="overflow-x-scroll">
-					<iframe
-						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d228886.9513670094!2d122.86495010816886!3d7.894541141682729!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x32540f292e85b3b1%3A0xd6e2d47531071ed0!2sLakewood%2C%20Zamboanga%20del%20Sur!5e1!3m2!1sen!2sph!4v1729742802952!5m2!1sen!2sph"
-						width="600"
-						height="1000"
-						style={{ border: 0 }}
-						allowFullScreen=""
-						loading="lazy"
-						referrerPolicy="no-referrer-when-downgrade"></iframe>
+			<div className="bg-green-700 relative">
+				<div className="overflow-x-hidden mx-auto w-[375px]">
+					<img
+						src={map}
+						alt="Map"
+						className="pb-24"
+					/>
 				</div>
-				<BottomNav />
 			</div>
+
+			<div>
+				<a
+					id="resort-link"
+					className="absolute z-50 top-1">
+					ss
+				</a>
+				<Tooltip
+					anchorSelect="#resort-link" // Associates tooltip with this anchor
+					clickable // Allows interaction with the tooltip content
+				>
+					<div className="p-2 text-center">
+						<img
+							src="https://via.placeholder.com/150" // Replace with actual image URL
+							alt="Resort"
+							className="w-24 h-24 object-cover mx-auto mb-2"
+						/>
+						<p className="text-sm font-bold mb-1">Beautiful Resort</p>
+						<Link
+							to="/resort/123" // Replace with the actual resort link
+							className="text-blue-500 underline text-sm">
+							View Resort Details
+						</Link>
+					</div>
+				</Tooltip>
+			</div>
+
+			<BottomNav />
 		</>
 	);
 }
