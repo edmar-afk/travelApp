@@ -343,7 +343,7 @@ function Map() {
 				<div className="absolute z-50 top-[765px] right-[45px]">
 					<a
 						id="pg-suite"
-						className=" border-2 p-2 rounded-full px-3 py-0.5"></a>
+						className=" border-2 p-2 rounded-full border-transparent px-3 py-0.5"></a>
 					<Tooltip
 						anchorSelect="#pg-suite" // Associates tooltip with this anchor
 						clickable // Allows interaction with the tooltip content
