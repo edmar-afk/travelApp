@@ -1,6 +1,4 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";
-import Diversity1Icon from "@mui/icons-material/Diversity1";
-import ApprovalIcon from "@mui/icons-material/Approval";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";import ApprovalIcon from "@mui/icons-material/Approval";
 import api from "../../../assets/api";
 import SubPlaces from "./SubPlaces";
 import { Tooltip } from "react-tooltip";
@@ -140,6 +138,14 @@ function LocationDetail() {
 				<div className="flex flex-row mt-2 overflow-x-scroll whitespace-nowrap my-12">
 					<SubPlaces placeId={buildingId} />
 				</div>
+				{/* <div className="pb-8">
+					<p className="font-bold text-lg">Photo Credit </p>
+					<p className="italic text-sm">
+						This picture is used with permission or under license from rightful owner, and all rights remain with the
+						original owner.
+					</p>
+					<hr />
+				</div> */}
 				<div className="mt-4 mb-16 prose">
 					<p
 						className="whitespace-pre-wrap"
