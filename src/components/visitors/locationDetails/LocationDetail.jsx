@@ -158,13 +158,9 @@ function LocationDetail() {
 					/>
 				</div>
 
-				<ChatbotBuildings
-					isVisible={chatbotVisible}
-					onClose={() => setChatbotVisible(false)}
-					resortName={place.name || "Place Image"}
-				/>
+				
 				<div className="fixed -left-0 bottom-0 h-[250px] w-full bg-gradient-to-t from-white"></div>
-				<div className="fixed w-[80%] text-xs bottom-2 right-2 flex justify-center mx-auto">
+				<div className="fixed w-full text-xs bottom-2 flex justify-center mx-auto">
 					<button
 						onClick={isLiked ? handleDislike : handleLike}
 						disabled={!isLoggedIn} // Disable button if not logged in
@@ -173,11 +169,11 @@ function LocationDetail() {
 							{!isLoggedIn ? "Log in first to interact" : isLiked ? "You already Loved this Place" : "Love this Place"}
 						</div>
 					</button>
-					<button
+					{/* <button
 						onClick={toggleChatbot}
 						className="fixed text-xs bottom-2 left-6 bg-yellow-600 text-white py-1 px-4 rounded-full z-50">
 						<SmartToyIcon />
-					</button>
+					</button> */}
 				</div>
 			</div>
 		</div>
