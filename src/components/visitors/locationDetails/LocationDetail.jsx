@@ -1,6 +1,4 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";import ApprovalIcon from "@mui/icons-material/Approval";import api from "../../../assets/api";import SubPlaces from "./SubPlaces";
-import { Tooltip } from "react-tooltip";
-import detailbg from "../../../assets/img/detailbg.jpg";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";import ApprovalIcon from "@mui/icons-material/Approval";import api from "../../../assets/api";import SubPlaces from "./SubPlaces";import { Tooltip } from "react-tooltip";import detailbg from "../../../assets/img/detailbg.jpg";
 import SmartToyIcon from "@mui/icons-material/SmartToy";
 import ChatbotBuildings from "./ChatbotBuildings";
 function LocationDetail() {
@@ -163,6 +161,7 @@ function LocationDetail() {
 				<ChatbotBuildings
 					isVisible={chatbotVisible}
 					onClose={() => setChatbotVisible(false)}
+					resortName={place.name || "Place Image"}
 				/>
 				<div className="fixed -left-0 bottom-0 h-[250px] w-full bg-gradient-to-t from-white"></div>
 				<div className="fixed w-[80%] text-xs bottom-2 right-2 flex justify-center mx-auto">
