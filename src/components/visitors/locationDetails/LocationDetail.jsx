@@ -1,9 +1,8 @@
-import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";import ApprovalIcon from "@mui/icons-material/Approval";
-import api from "../../../assets/api";
-import SubPlaces from "./SubPlaces";
+import { useParams, Link } from "react-router-dom";import { useEffect, useState } from "react";import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";import CorporateFareIcon from "@mui/icons-material/CorporateFare";import Diversity1Icon from "@mui/icons-material/Diversity1";import ApprovalIcon from "@mui/icons-material/Approval";import api from "../../../assets/api";import SubPlaces from "./SubPlaces";
 import { Tooltip } from "react-tooltip";
-import detailbg from '../../../assets/img/detailbg.jpg';
-
+import detailbg from "../../../assets/img/detailbg.jpg";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import ChatbotBuildings from "./ChatbotBuildings";
 function LocationDetail() {
 	const { buildingId } = useParams();
 	const [place, setPlace] = useState(null);
@@ -13,6 +12,14 @@ function LocationDetail() {
 	const [likes, setLikes] = useState(0);
 	const [refreshTrigger, setRefreshTrigger] = useState(false);
 	const userData = JSON.parse(localStorage.getItem("userData")) || {};
+
+	const [chatbotVisible, setChatbotVisible] = useState(false); // State to toggle Chatbot visibility
+
+	const toggleChatbot = () => {
+		setChatbotVisible((prev) => !prev);
+		console.log('clicked')
+		console.log(chatbotVisible)
+	};
 
 	// Determine if user is logged in
 	const isLoggedIn = Object.keys(userData).length > 0;
@@ -153,17 +160,26 @@ function LocationDetail() {
 					/>
 				</div>
 
+				<ChatbotBuildings
+					isVisible={chatbotVisible}
+					onClose={() => setChatbotVisible(false)}
+				/>
 				<div className="fixed -left-0 bottom-0 h-[250px] w-full bg-gradient-to-t from-white"></div>
-				<button
-					onClick={isLiked ? handleDislike : handleLike}
-					disabled={!isLoggedIn} // Disable button if not logged in
-					className={`fixed w-full bottom-2 left-1/2 transform -translate-x-1/2 flex justify-center mx-auto hover:scale-110 duration-300 ${
-						!isLoggedIn ? "opacity-50 cursor-not-allowed" : ""
-					}`}>
-					<div className="bg-yellow-600 text-white py-2 px-12 rounded-full">
-						{!isLoggedIn ? "Log in first to interact" : isLiked ? "You already Loved this Place" : "Love this Place"}
-					</div>
-				</button>
+				<div className="fixed w-[80%] text-xs bottom-2 right-2 flex justify-center mx-auto">
+					<button
+						onClick={isLiked ? handleDislike : handleLike}
+						disabled={!isLoggedIn} // Disable button if not logged in
+						className={` hover:scale-110 duration-300 ${!isLoggedIn ? "opacity-50 cursor-not-allowed" : ""}`}>
+						<div className="bg-yellow-600 text-white py-2 px-12 rounded-full">
+							{!isLoggedIn ? "Log in first to interact" : isLiked ? "You already Loved this Place" : "Love this Place"}
+						</div>
+					</button>
+					<button
+						onClick={toggleChatbot}
+						className="fixed text-xs bottom-2 left-6 bg-yellow-600 text-white py-1 px-4 rounded-full z-50">
+						<SmartToyIcon />
+					</button>
+				</div>
 			</div>
 		</div>
 	);
