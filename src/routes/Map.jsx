@@ -1,6 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */ import BottomNav from "../components/BottomNav";import map from "../assets/img/map.png";
-import "react-tooltip/dist/react-tooltip.css";
-import { Tooltip } from "react-tooltip";
+/* eslint-disable react/no-unescaped-entities */ import BottomNav from "../components/BottomNav";import map from "../assets/img/map.png";import "react-tooltip/dist/react-tooltip.css";import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom"; // Import Link for navigation
 import bakaFalls from "../assets/img/resorts/baka-falls.jpg";
 import libasSpring from "../assets/img/resorts/libas.jpeg";
@@ -15,30 +13,40 @@ import lagkaw from "../assets/img/resorts/campLagkaw.jpeg";
 import atm from "../assets/img/resorts/ATM.jpeg";
 import roberto from "../assets/img/resorts/roberto.jpeg";
 import pgsuite from "../assets/img/resorts/PGsuite.png";
-import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
+import { useState } from "react";
 
 function Map() {
+	const [scale, setScale] = useState(1);
+
+	const increaseScale = () => {
+		setScale((prevScale) => prevScale + 0.1);
+	};
+
+	const decreaseScale = () => {
+		setScale((prevScale) => Math.max(prevScale - 0.1, 0.1)); // Prevents scale from going below 0.1
+	};
 	return (
 		<>
 			<div className="bg-green-700 relative pb-24">
-				<div className="overflow-x-hidden mx-auto w-[375px]">
-					<TransformWrapper
-						initialScale={1}
-						minScale={0.5}
-						maxScale={3}>
-						{({ zoomIn, zoomOut, resetTransform }) => (
-							<>
-								
-								<TransformComponent>
-									<img
-										src={map}
-										alt="Map"
-										className="pb-24"
-									/>
-								</TransformComponent>
-							</>
-						)}
-					</TransformWrapper>
+				<div className="overflow-auto mx-auto w-[375px]">
+					<div className="fixed top-4 right-4 flex space-x-4 z-50">
+						<button
+							onClick={increaseScale}
+							className="bg-white text-green-600 py-1 px-3 text-lg rounded-full">
+							+
+						</button>
+						<button
+							onClick={decreaseScale}
+							className="bg-white text-green-600 py-1 px-3 text-lg rounded-full">
+							-
+						</button>
+					</div>
+					<img
+						src={map}
+						alt="Map"
+						className="pb-24"
+						style={{ transform: `scale(${scale})` }}
+					/>
 				</div>
 
 				<div className="absolute z-50 top-[175px] right-[2px]">
