@@ -4,39 +4,39 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugin = {
 	registerType: "prompt",
-	includeAssets: ["favicon.ico", "apple-touch-icon.jpg"],
+	includeAssets: ["favicon.ico", "apple-touc-icon.png"],
 	manifest: {
 		name: "Travel Easy",
 		short_name: "Travel Easy",
 		description: "Lakewood Tourist Spots",
 		icons: [
 			{
-				src: "./icon-192x192.jpg",
+				src: "./icon-192x192.png",
 				sizes: "192x192",
-				type: "image/jpg",
+				type: "image/png",
 			},
 			{
-				src: "./icon-512x512.jpg",
+				src: "./icon-512x512.png",
 				sizes: "512x512",
-				type: "image/jpg",
+				type: "image/png",
 				purpose: "favicon",
 			},
 			{
-				src: "/apple-touch-icon.jpg",
+				src: "/apple-touch-icon.png",
 				sizes: "180x180",
-				type: "image/jpg",
+				type: "image/png",
 				purpose: "apple touch icon",
 			},
 			{
-				src: "./icon-144x144.jpg",
+				src: "./icon-144x144.png",
 				sizes: "144x144",
-				type: "image/jpg",
+				type: "image/png",
 				purpose: "any",
 			},
 			{
-				src: "./icon-256x256.jpg",
+				src: "./icon-256x256.png",
 				sizes: "256x256",
-				type: "image/jpg",
+				type: "image/png",
 				purpose: "icon",
 			},
 		],
