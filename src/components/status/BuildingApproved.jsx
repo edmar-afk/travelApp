@@ -32,7 +32,7 @@ function BuildingApproved() {
 								<img
 									src={place.logo || resortLogo} // Fallback to resortLogo if place.logo is empty
 									alt={`${place.name || "Resort"} logo`}
-									className="-mb-4 w-14"
+									className="-mb-4 w-14 rounded-full"
 								/>
 								<div className="text-center text-gray-800 text-xs">
 									<div className="flex items-center justify-center">
