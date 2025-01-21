@@ -1,4 +1,5 @@
-/* eslint-disable react/no-unescaped-entities */import BottomNav from "../components/BottomNav";import map from "../assets/img/map.png";import "react-tooltip/dist/react-tooltip.css";
+/* eslint-disable react/no-unescaped-entities */ import BottomNav from "../components/BottomNav";import map from "../assets/img/map.png";
+import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip } from "react-tooltip";
 import { Link } from "react-router-dom"; // Import Link for navigation
 import bakaFalls from "../assets/img/resorts/baka-falls.jpg";
@@ -13,19 +14,31 @@ import meguranao from "../assets/img/resorts/meguranao.jpeg";
 import lagkaw from "../assets/img/resorts/campLagkaw.jpeg";
 import atm from "../assets/img/resorts/ATM.jpeg";
 import roberto from "../assets/img/resorts/roberto.jpeg";
-import pgsuite from '../assets/img/resorts/PGsuite.png';
-
+import pgsuite from "../assets/img/resorts/PGsuite.png";
+import { TransformWrapper, TransformComponent } from "react-zoom-pan-pinch";
 
 function Map() {
 	return (
 		<>
 			<div className="bg-green-700 relative pb-24">
 				<div className="overflow-x-hidden mx-auto w-[375px]">
-					<img
-						src={map}
-						alt="Map"
-						className="pb-24"
-					/>
+					<TransformWrapper
+						initialScale={1}
+						minScale={0.5}
+						maxScale={3}>
+						{({ zoomIn, zoomOut, resetTransform }) => (
+							<>
+								
+								<TransformComponent>
+									<img
+										src={map}
+										alt="Map"
+										className="pb-24"
+									/>
+								</TransformComponent>
+							</>
+						)}
+					</TransformWrapper>
 				</div>
 
 				<div className="absolute z-50 top-[175px] right-[2px]">
