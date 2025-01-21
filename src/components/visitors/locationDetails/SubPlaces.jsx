@@ -1,5 +1,4 @@
-/* eslint-disable react/prop-types */import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */ import { useEffect, useState } from "react";import { Link } from "react-router-dom";
 import ExploreIcon from "@mui/icons-material/Explore";
 import Zoom from "react-medium-image-zoom";
 import "react-medium-image-zoom/dist/styles.css";
@@ -37,11 +36,11 @@ function SubPlaces({ placeId }) {
 				<p>No subplaces found for this place.</p>
 			) : (
 				subPlaces.map((subPlace) => (
-					<Link
+					<div
 						key={subPlace.id}
-						to={`/visitorDashboard/buildingDetails/${subPlace.id}`}
 						className="flex flex-col relative mb-4 mx-4 min-w-[350px]">
-						<div className="absolute top-0 h-full w-full rounded-2xl bg-gradient-to-t from-gray-900"></div>
+						<div className="absolute top-0 h-full w-full rounded-2xl bg-gradient-to-t from-gray-900 pointer-events-none"></div>
+
 						<Zoom>
 							<img
 								src={`${BASE_URL}${subPlace.image}`}
@@ -55,7 +54,7 @@ function SubPlaces({ placeId }) {
 								<p className="ml-1">{subPlace.name}</p>
 							</div>
 						</div>
-					</Link>
+					</div>
 				))
 			)}
 		</>
