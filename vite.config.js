@@ -6,9 +6,9 @@ const manifestForPlugin = {
 	registerType: "prompt",
 	includeAssets: ["favicon.ico", "apple-touc-icon.png"],
 	manifest: {
-		name: "JHCSC Student Support",
-		short_name: "JHCSC Student Support",
-		description: "QUERY OF JHCSC",
+		name: "Travel Easy",
+		short_name: "Easy Travel",
+		description: "Capstone of JHCSC",
 		icons: [
 			{
 				src: "./icon-192x192.png",
