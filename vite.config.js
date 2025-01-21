@@ -4,7 +4,7 @@ import { VitePWA } from "vite-plugin-pwa";
 
 const manifestForPlugin = {
 	registerType: "prompt",
-	includeAssets: ["favicon.ico", "apple-touc-icon.png"],
+	includeAssets: ["favicon.ico", "apple-touch-icon.png"],
 	manifest: {
 		name: "Travel Easy",
 		short_name: "Travel Easy",
@@ -14,18 +14,19 @@ const manifestForPlugin = {
 				src: "./icon-192x192.png",
 				sizes: "192x192",
 				type: "image/png",
+				purpose: "any",
 			},
 			{
 				src: "./icon-512x512.png",
 				sizes: "512x512",
 				type: "image/png",
-				purpose: "favicon",
+				purpose: "any",
 			},
 			{
 				src: "/apple-touch-icon.png",
 				sizes: "180x180",
 				type: "image/png",
-				purpose: "apple touch icon",
+				purpose: "any",
 			},
 			{
 				src: "./icon-144x144.png",
@@ -37,7 +38,7 @@ const manifestForPlugin = {
 				src: "./icon-256x256.png",
 				sizes: "256x256",
 				type: "image/png",
-				purpose: "icon",
+				purpose: "any",
 			},
 		],
 		theme_color: "#181818",
@@ -49,7 +50,6 @@ const manifestForPlugin = {
 	},
 };
 
-// https://vitejs.dev/config/
 export default defineConfig({
 	plugins: [react(), VitePWA(manifestForPlugin)],
 });
