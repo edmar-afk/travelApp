@@ -80,12 +80,7 @@ function Chatbot() {
 		endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
 	}, [messages]);
 
-	// Scroll to bottom whenever Choices are shown again
-	useEffect(() => {
-		if (choicesVisible) {
-			endOfMessagesRef.current?.scrollIntoView({ behavior: "smooth" });
-		}
-	}, [choicesVisible]);
+	
 
 	return (
 		<>
